@@ -1,11 +1,12 @@
 from twisted.words.protocols import irc
 from twisted.internet import protocol, reactor
-import confidential
 
 
 class TwitchBot(irc.IRCClient):
 
-    password = confidential.twitch_oauth # for twitch
+    # todo names command
+
+    # password = confidential.twitch_oauth # for twitch
 
     def _get_nickname(self):
         return self.factory.nickname
@@ -53,6 +54,15 @@ class TwitchBotFactory:
 
     @type bot_class: C{TwitchBot}
     @param bot_class: A class that extends TwitchBot that defines
+
+    @type channel: C{str}
+    @param channel: the channel name prepended with a '#' i.e. '#forsenlol'
+
+    @type bot_class: C{str}
+    @param bot_class: your twitch username
+
+    @type bot_class: C{str}
+    @param bot_class: your twitch oauth string which can be generated here: http://www.twitchapps.com/tmi
     """
     def __init__(self, bot_class, channel, twitch_username, twitch_oauth):
         factory = _BotFactory(bot_class, channel, twitch_username, twitch_oauth)
