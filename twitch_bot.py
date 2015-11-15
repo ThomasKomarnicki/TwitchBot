@@ -1,5 +1,6 @@
 import confidential
-from bot.TwitchBot import TwitchBotFactory, TwitchBot
+from bot.TwitchBot import TwitchBot
+from bot.factory import TwitchBotFactory
 
 
 class SpamTwitchBot(TwitchBot):
@@ -7,4 +8,4 @@ class SpamTwitchBot(TwitchBot):
 
 
 if __name__ == "__main__":
-    factory = TwitchBotFactory(SpamTwitchBot, '#sjow', 'Esroh8', confidential.twitch_oauth)
+    factory = TwitchBotFactory(SpamTwitchBot, '#polt', 'Esroh8', confidential.twitch_oauth)
