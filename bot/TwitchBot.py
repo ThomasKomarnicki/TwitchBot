@@ -4,7 +4,7 @@ import re
 
 
 class TwitchBot(irc.IRCClient):
-    #
+    # commands the bot should handle
     bot_commands = re.compile('(\!TwitchBot)|(\!BotTwitch)')
 
     def _get_nickname(self):
