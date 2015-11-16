@@ -8,4 +8,4 @@ class SpamTwitchBot(TwitchBot):
 
 
 if __name__ == "__main__":
-    factory = TwitchBotFactory(SpamTwitchBot, '#polt', 'Esroh8', confidential.twitch_oauth)
+    factory = TwitchBotFactory(SpamTwitchBot, '#followgrubby', 'Esroh8', confidential.twitch_oauth)

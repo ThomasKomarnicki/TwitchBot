@@ -26,7 +26,7 @@ class TwitchBot(irc.IRCClient):
         print "Joined %s." % (channel,)
 
     def privmsg(self, user, channel, msg):
-        # print str(user) + ':::: ' + str(msg) + '\n'
+        print str(user) + ':::: ' + str(msg) + '\n'
         user = self.create_twitch_name(user)
         if self.bot_commands and self.bot_commands.match(msg):
             m = self.bot_commands.search(msg)
@@ -34,6 +34,9 @@ class TwitchBot(irc.IRCClient):
             self.bot_message(user, command, msg[len(command):])
         else:
             self.chat_message(user, msg)
+
+    def stop_bot(self):
+        self.quit()
 
     def create_twitch_name(self, user):
         return re.compile('\!').split(user)[0]
@@ -53,16 +56,11 @@ class TwitchBot(irc.IRCClient):
         :param user: the user that sent the message
         :param command: the command associated with the message
         :param message: the remaind of the message
-        :return:
         '''
         pass
 
     def watchers_received(self, mods, watchers):
         pass
-        # print "mods"
-        # print mods
-        # print "watchers"
-        # print watchers
 
 
 
